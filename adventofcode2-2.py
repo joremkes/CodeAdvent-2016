@@ -12,26 +12,34 @@ command_int = 0
 location = 5
 
 keypad = [	[0,0,0,0],
-			[1,4,1,2], #1 U, D, L, R
-			[2,5,1,3], #2
-			[3,6,2,3], #3
-			[1,7,4,5], #4
-			[2,8,4,6], #5
-			[3,9,5,6], #6
-			[4,7,7,8], #7
-			[5,8,7,9], #8
-			[6,9,8,9]  #9
+			[1,3,1,1], #1 U, D, L, R
+			[2,6,2,4], #2
+			[1,7,2,4], #3
+			[4,8,3,4], #4
+			[5,5,5,6], #5
+			[2,10,5,7], #6
+			[3,11,6,8], #7
+			[4,12,7,9], #8
+			[9,9,8,9],  #9
+			[6,10,10,11], #10, A
+			[7,13,10,12], #11, B
+			[8,12,11,12], #12, C
+			[11,13,13,13] #13, D
 		]
 
 
 for s in code:
     for i in range(len(s)):
+        #print location
         command = s[i]
         if command == 'U': command_int = 0
         elif command == 'D': command_int = 1
         elif command == 'L': command_int = 2
         elif command == 'R': command_int = 3
         location = keypad[location][command_int]
-    print location
+    
+    print hex(location)[2]
+    
+
 
 
